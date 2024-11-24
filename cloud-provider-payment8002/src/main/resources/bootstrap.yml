@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: cloud-payment-service
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+      config:
+        profile-separator: '-'  # 修改配置分隔符，默认为逗号
+        format: YAML
+        watch:    # consul 配置监听时间间隔,自动刷新时间间隔
+          wait-time: 1
